@@ -2,7 +2,7 @@ import React from 'react'
 import {Card,CardBody,CardText,CardTitle, Button} from "reactstrap"
 
 
-const cartItem=({product,addItem})=> {
+const CartItem=({product,addItem})=> {
 
   return (
     <Card className='mt-2 mb-1'>
@@ -16,4 +16,4 @@ const cartItem=({product,addItem})=> {
   )
 }
 
-export default cartItem
+export default CartItem

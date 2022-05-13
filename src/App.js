@@ -36,6 +36,7 @@ function App() {
     <div>
     
     <BuyPage addItem={addItem}/>
+    <cart cartItem={cartItem} removeItem={removeItem} buyItem={buyItem}/>
     </div>
   )
 }
