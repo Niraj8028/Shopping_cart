@@ -1,10 +1,10 @@
 import React,{usestate} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import "react-toastify/dist/ReactToastify.css"
-import { toast } from 'react-toastify';
+import { toast,ToastContainer} from 'react-toastify';
 import BuyPage from './Components/BuyPage';
-
-
+import cart from './Components/cart';
+import {Container,Row,Col} from "reactstrap"
 
 function App() {
   const [cartItem,setCartItem]=usestate([]);
@@ -33,12 +33,19 @@ function App() {
     })
   }
   return (
-    <div>
-    
-    <BuyPage addItem={addItem}/>
-    <cart cartItem={cartItem} removeItem={removeItem} buyItem={buyItem}/>
-    </div>
+    <Container fluid>
+      <ToastContainer/>
+      <Row>
+          <Col md="8">
+            <BuyPage addItem={addItem}/>
+          </Col>
+          <col md="4">
+            <cart cartItem={cartItem} removeItem={removeItem} buyItem={buyItem}/>
+          </col>
+      </Row>
+    </Container>
   )
 }
+
 
 export default App

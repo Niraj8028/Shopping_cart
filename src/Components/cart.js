@@ -1,6 +1,6 @@
 import { Button } from 'bootstrap';
 import React from 'react'
-import {Container,Row,Col,Card,CardBody,CardTitle,CardText,ListGroup,ListGroupItem} from "reactstrap"
+import {Container,Row,Col,Card,CardBody,ListGroup,ListGroupItem, CardHeader, CardFooter} from "reactstrap"
 
 
 const cart=({cartItem,removeItem,buyItem})=> {
@@ -29,7 +29,20 @@ const cart=({cartItem,removeItem,buyItem})=> {
                 </ListGroupItem>   
         ))}
         </ListGroup>  
-        
+        {cartItem.length>=1?(
+            <Card className='text-center mt-3'>
+                <CardHeader>Your Grand Total</CardHeader>
+                <CardBody>
+                    Your GrandTotal for {cartItem.length} products is {amount}
+                </CardBody>
+                <CardFooter>
+                    <Button  onClick={buyItem}>Pay here</Button>
+                </CardFooter>
+            </Card>
+        ):(
+            <h1 className='text-warning'>Your Cart is Empty</h1>
+        )   
+    }
     </Container>
   )
 }
