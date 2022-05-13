@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{usestate} from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import "react-toastify/dist/ReactToastify.css"
+import { toast } from 'react-toastify';
+
+
 
 function App() {
+  const [cartItem,setCartItem]=usestate([]);
+
+  const addItem=item=>{
+    const isAlreadyAdded=cartItem.findIndex(function(array){
+      return item.id!==array.id
+    })
+    if(isAlreadyAdded!==-1){
+      toast("Item is already added", {
+        type:"error"
+      })
+    }
+    setCartItem([...cartItem,item])
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <div>App</div>
+  )
 }
 
-export default App;
+export default App
