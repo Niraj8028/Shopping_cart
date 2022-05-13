@@ -2,6 +2,7 @@ import React,{usestate} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import "react-toastify/dist/ReactToastify.css"
 import { toast } from 'react-toastify';
+import BuyPage from './Components/BuyPage';
 
 
 
@@ -14,7 +15,7 @@ function App() {
     })
     if(isAlreadyAdded!==-1){
       toast("Item is already added", {
-        type:Error
+        type:"Error"
       })
     }
     setCartItem([...cartItem,item])
@@ -22,17 +23,20 @@ function App() {
   const buyItem=()=>{
     setCartItem([]);
     toast("Purchase Complete",{
-      type:success
+      type:"success"
     })
   }
   const removeItem=item=>{
     setCartItem(cartItem.filter(i=>i.id!==item.id))
     toast("item removed succesfully",{
-      type:success
+      type:"success"
     })
   }
   return (
-    <div>App</div>
+    <div>
+    
+    <BuyPage addItem={addItem}/>
+    </div>
   )
 }
 
