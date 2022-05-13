@@ -14,10 +14,16 @@ function App() {
     })
     if(isAlreadyAdded!==-1){
       toast("Item is already added", {
-        type:"error"
+        type:Error
       })
     }
     setCartItem([...cartItem,item])
+  }
+  const buyItem=()=>{
+    setCartItem([]);
+    toast("Purchase Complete",{
+      type:success
+    })
   }
   return (
     <div>App</div>
