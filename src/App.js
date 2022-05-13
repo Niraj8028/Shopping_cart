@@ -25,6 +25,12 @@ function App() {
       type:success
     })
   }
+  const removeItem=item=>{
+    setCartItem(cartItem.filter(i=>i.id!==item.id))
+    toast("item removed succesfully",{
+      type:success
+    })
+  }
   return (
     <div>App</div>
   )
